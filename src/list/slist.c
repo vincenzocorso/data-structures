@@ -87,7 +87,7 @@ slist_node_ptr slist_extract_after(slist_ptr list, slist_node_ptr node) {
 slist_iter_ptr slist_iter_forward(slist_ptr list, slist_node_ptr node) {
 	slist_iter_ptr iter = malloc(sizeof(slist_iter_t));
 	if(iter != NULL) {
-		iter->next = (node == NULL) ? slist_get_first(list) : node;
+		iter->next = (node == NULL) ? list->NIL->next : node;
 		iter->NIL = list->NIL;
 	}
 	return iter;
