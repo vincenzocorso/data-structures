@@ -56,10 +56,8 @@ int main() {
 
 void print_list(slist_ptr list) {
 	slist_iter_ptr iter = slist_iter_forward(list, NULL);
-	while(slist_iter_has_next(iter)) {
-		slist_node_ptr node = slist_iter_next(iter);
-		printf("%d --> ", *(int *)slist_node_get_element(node));
-	}
+	while(slist_iter_has_next(iter))
+		printf("%d --> ", *(int *)slist_iter_next_element(iter));
 	printf("NULL\n");
 	slist_iter_free(iter);
 }

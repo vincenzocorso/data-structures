@@ -88,20 +88,16 @@ int main() {
 
 void print_list_forward(dlist_ptr list) {
 	dlist_iter_ptr iter = dlist_iter_forward(list, NULL);
-	while(dlist_iter_has_next(iter)) {
-		dlist_node_ptr node = dlist_iter_next(iter);
-		printf("%d --> ", *(int *)dlist_node_get_element(node));
-	}
+	while(dlist_iter_has_next(iter))
+		printf("%d --> ", *(int *)dlist_iter_next_element(iter));
 	printf("NULL\n");
 	dlist_iter_free(iter);
 }
 
 void print_list_backward(dlist_ptr list) {
 	dlist_iter_ptr iter = dlist_iter_backward(list, NULL);
-	while(dlist_iter_has_next(iter)) {
-		dlist_node_ptr node = dlist_iter_next(iter);
-		printf("%d --> ", *(int *)dlist_node_get_element(node));
-	}
+	while(dlist_iter_has_next(iter))
+		printf("%d --> ", *(int *)dlist_iter_next_element(iter));
 	printf("NULL\n");
 	dlist_iter_free(iter);
 }

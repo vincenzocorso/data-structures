@@ -149,10 +149,15 @@ int dlist_iter_has_next(dlist_iter_ptr iter) {
 	return (iter->next != iter->NIL);
 }
 
-dlist_node_ptr dlist_iter_next(dlist_iter_ptr iter) {
+dlist_node_ptr dlist_iter_next_node(dlist_iter_ptr iter) {
 	dlist_node_ptr node = iter->next;
 	iter->next = (iter->is_forward) ? node->next : node->prev;
 	return node;
+}
+
+void *dlist_iter_next_element(dlist_iter_ptr iter) {
+	dlist_node_ptr node = dlist_iter_next_node(iter);
+	return node->element_ptr;
 }
 
 void dlist_iter_free(dlist_iter_ptr iter) {

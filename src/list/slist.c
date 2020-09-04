@@ -110,10 +110,15 @@ int slist_iter_has_next(slist_iter_ptr iter) {
 	return (iter->next != iter->NIL);
 }
 
-slist_node_ptr slist_iter_next(slist_iter_ptr iter) {
+slist_node_ptr slist_iter_next_node(slist_iter_ptr iter) {
 	slist_node_ptr node = iter->next;
 	iter->next = node->next;
 	return node;
+}
+
+void *slist_iter_next_element(slist_iter_ptr iter) {
+	slist_node_ptr node = slist_iter_next_node(iter);
+	return node->element_ptr;
 }
 
 void slist_iter_free(slist_iter_ptr iter) {

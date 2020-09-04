@@ -87,11 +87,17 @@ slist_iter_ptr slist_iter_forward(slist_ptr list, slist_node_ptr node);
 */
 int slist_iter_has_next(slist_iter_ptr iter);
 
-/*	Get the next element from the given iterator.
+/*	Get the next node from the given iterator. The current position increases by one.
 	iter: a pointer to the iterator.
 	return: a pointer to the node visited.
 */
-slist_node_ptr slist_iter_next(slist_iter_ptr iter);
+slist_node_ptr slist_iter_next_node(slist_iter_ptr iter);
+
+/*	Get the next element from the given iterator. The current position increases by one.
+	iter: a pointer to the iterator.
+	return: a pointer to the element of the node that was visited.
+*/
+void *slist_iter_next_element(slist_iter_ptr iter);
 
 /*	Free the memory allocated for the given iterator.
 	iter: a pointer to the iterator.
