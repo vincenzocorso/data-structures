@@ -45,6 +45,17 @@ dlist_ptr dlist_create() {
 	return list;
 }
 
+dlist_ptr dlist_copy(dlist_ptr list) {
+	dlist_ptr result = dlist_create();
+	dlist_node_ptr current_ptr = list->NIL->next;
+	while(current_ptr != list->NIL) {
+		dlist_node_ptr new_node = dlist_node_create(current_ptr->element_ptr);
+		dlist_insert_before(result, NULL, new_node);
+		current_ptr = current_ptr->next;
+	}
+	return result;
+}
+
 dlist_node_ptr dlist_get_first(dlist_ptr list) {
 	return (list->NIL->next == list->NIL) ? NULL : list->NIL->next;
 }

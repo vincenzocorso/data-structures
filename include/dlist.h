@@ -32,6 +32,12 @@ typedef struct dlist_iter_t *dlist_iter_ptr;
 */
 dlist_ptr dlist_create();
 
+/*	Create a shallow copy of the given double linked list.
+	list: a pointer to the given list.
+	return: a pointer to the copied list.
+*/
+dlist_ptr dlist_copy(dlist_ptr list);
+
 /*	Get the first list node.
 	list: a pointer to the list.
 	return: a pointer to the head node or NULL if the list is empty.

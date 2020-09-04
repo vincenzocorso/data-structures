@@ -74,8 +74,12 @@ int main() {
 	}
 
 	print_list_forward(list);
-
 	print_list_backward(list);
+
+	dlist_ptr copy = dlist_copy(list);
+	print_list_forward(copy);
+	print_list_backward(copy);
+	dlist_free(copy);
 
 	dlist_free(list);
 

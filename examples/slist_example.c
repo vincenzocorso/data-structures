@@ -45,6 +45,10 @@ int main() {
 
 	print_list(list);
 
+	slist_ptr copy = slist_copy(list);
+	print_list(copy);
+	slist_free(copy);
+
 	slist_free(list);
 
 	return 0;

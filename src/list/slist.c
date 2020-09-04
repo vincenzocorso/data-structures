@@ -45,6 +45,19 @@ slist_ptr slist_create() {
 	return list;
 }
 
+slist_ptr slist_copy(slist_ptr list) {
+	slist_ptr result = slist_create();
+	slist_node_ptr current_ptr = list->NIL->next;
+	slist_node_ptr previous_ptr = NULL;
+	while(current_ptr != list->NIL) {
+		slist_node_ptr new_node = slist_node_create(current_ptr->element_ptr);
+		slist_insert_after(result, previous_ptr, new_node);
+		previous_ptr = new_node;
+		current_ptr = current_ptr->next;
+	}
+	return result;
+}
+
 slist_node_ptr slist_get_first(slist_ptr list) {
 	return (list->NIL->next == list->NIL) ? NULL : list->NIL->next;
 }

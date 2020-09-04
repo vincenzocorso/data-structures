@@ -32,6 +32,12 @@ typedef struct slist_iter_t *slist_iter_ptr;
 */
 slist_ptr slist_create();
 
+/*	Create a shallow copy of the given single linked list.
+	list: a pointer to the given list.
+	return: a pointer to the copied list.
+*/
+slist_ptr slist_copy(slist_ptr list);
+
 /*	Get the first list node.
 	list: a pointer to the list.
 	return: a pointer to the head node or NULL if the list is empty.
