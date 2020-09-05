@@ -82,6 +82,13 @@ void *dlist_delete_before(dlist_ptr list, dlist_node_ptr node);
 */
 void *dlist_delete_after(dlist_ptr list, dlist_node_ptr node);
 
+/*	Delete the current node (the node is freed).
+	list: a pointer to the list.
+	node: a pointer to the node to be deleted.
+	return: a pointer to the element contained in the node.
+*/
+void *dlist_delete_current(dlist_ptr list, dlist_node_ptr node);
+
 /*	Extract a node before the given node and return a pointer to it.
 	list: a pointer to the list.
 	node: a pointer to the given node. If it's NULL, extract the node
@@ -97,6 +104,12 @@ dlist_node_ptr dlist_extract_before(dlist_ptr list, dlist_node_ptr node);
 	return: a pointer to the node extracted.
 */
 dlist_node_ptr dlist_extract_after(dlist_ptr list, dlist_node_ptr node);
+
+/*	Extract the current node.
+	list: a pointer to the list.
+	node: a pointer to the node to be extracted.
+*/
+void dlist_extract_current(dlist_ptr list, dlist_node_ptr node);
 
 /*	Create a list iterator that traverses the list backward from the given node.
 	list: a pointer to the list.

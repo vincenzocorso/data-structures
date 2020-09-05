@@ -81,6 +81,13 @@ int main() {
 	print_list_backward(copy);
 	dlist_free(copy);
 
+	int a = 99;
+	dlist_node_ptr new_node = dlist_node_create(&a);
+	dlist_insert_before(list, NULL, new_node);
+	print_list_forward(list);
+	dlist_delete_current(list, new_node);
+	print_list_forward(list);
+
 	dlist_free(list);
 
 	return 0;

@@ -98,6 +98,13 @@ void *dlist_delete_after(dlist_ptr list, dlist_node_ptr node) {
 	return element_ptr;
 }
 
+void *dlist_delete_current(dlist_ptr list, dlist_node_ptr node) {
+	dlist_extract_current(list, node);
+	void *element_ptr = node->element_ptr;
+	free(node);
+	return element_ptr;
+}
+
 dlist_node_ptr dlist_extract_before(dlist_ptr list, dlist_node_ptr node) {
 	if(node == NULL)
 		node = list->NIL;
@@ -122,6 +129,16 @@ dlist_node_ptr dlist_extract_after(dlist_ptr list, dlist_node_ptr node) {
 	temp->next->prev = node;
 	node->next = temp->next;
 	return temp;
+}
+
+void dlist_extract_current(dlist_ptr list, dlist_node_ptr node) {
+	if(node == NULL)
+		return;
+
+	dlist_node_ptr prev_node = node->prev;
+	dlist_node_ptr next_node = node->next;
+	prev_node->next = next_node;
+	next_node->prev = prev_node;
 }
 
 static dlist_iter_ptr dlist_iter_create(dlist_ptr list, dlist_node_ptr node, int is_forward) {
