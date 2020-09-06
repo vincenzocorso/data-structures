@@ -76,6 +76,11 @@ void slist_insert_after(slist_ptr list, slist_node_ptr node, slist_node_ptr new_
 		list->last = new_node;
 }
 
+void slist_insert_element_after(slist_ptr list, slist_node_ptr node, void *element_ptr) {
+	slist_node_ptr new_node = slist_node_create(element_ptr);
+	slist_insert_after(list, node, new_node);
+}
+
 void *slist_delete_after(slist_ptr list, slist_node_ptr node) {
 	slist_node_ptr extracted_node = slist_extract_after(list, node);
 	void *element_ptr = extracted_node->element_ptr;

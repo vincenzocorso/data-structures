@@ -58,6 +58,14 @@ dlist_node_ptr dlist_get_last(dlist_ptr list);
 */
 void dlist_insert_before(dlist_ptr list, dlist_node_ptr node, dlist_node_ptr new_node);
 
+/*	Insert a new node, containing the given element, before the given node.
+	list: a pointer to the list.
+	node: a pointer to the given node. If it's NULL, insert the new node
+		  at the beginning of the list.
+	element_ptr: a pointer to the element to be inserted.
+*/
+void dlist_insert_element_before(dlist_ptr list, dlist_node_ptr node, void *element_ptr);
+
 /*	Insert a new node after the given node.
 	list: a pointer to the list.
 	node: a pointer to the given node. If it's NULL, insert the new node
@@ -65,6 +73,14 @@ void dlist_insert_before(dlist_ptr list, dlist_node_ptr node, dlist_node_ptr new
 	new_node: a pointer to the node to be inserted.
 */
 void dlist_insert_after(dlist_ptr list, dlist_node_ptr node, dlist_node_ptr new_node);
+
+/*	Insert a new node, containing the given element, after the given node.
+	list: a pointer to the list.
+	node: a pointer to the given node. If it's NULL, insert the new node
+		  at the beginning of the list.
+	element_ptr: a pointer to the element to be inserted.
+*/
+void dlist_insert_element_after(dlist_ptr list, dlist_node_ptr node, void *element_ptr);
 
 /*	Delete a node before the given node (the node is freed).
 	list: a pointer to the list.
