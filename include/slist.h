@@ -63,8 +63,9 @@ void slist_insert_after(slist_ptr list, slist_node_ptr node, slist_node_ptr new_
 	node: a pointer to the given node. If it's NULL, insert the new node
 		  at the beginning of the list.
 	element_ptr: a pointer to the element to be inserted.
+	return: a pointer to the node inserted.
 */
-void slist_insert_element_after(slist_ptr list, slist_node_ptr node, void *element_ptr);
+slist_node_ptr slist_insert_element_after(slist_ptr list, slist_node_ptr node, void *element_ptr);
 
 /*	Delete a node after the given node (the node is freed).
 	list: a pointer to the list.

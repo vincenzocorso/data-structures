@@ -74,9 +74,10 @@ void dlist_insert_before(dlist_ptr list, dlist_node_ptr node, dlist_node_ptr new
 	node->prev = new_node;
 }
 
-void dlist_insert_element_before(dlist_ptr list, dlist_node_ptr node, void *element_ptr) {
+dlist_node_ptr dlist_insert_element_before(dlist_ptr list, dlist_node_ptr node, void *element_ptr) {
 	dlist_node_ptr new_node = dlist_node_create(element_ptr);
 	dlist_insert_before(list, node, new_node);
+	return new_node;
 }
 
 void dlist_insert_after(dlist_ptr list, dlist_node_ptr node, dlist_node_ptr new_node) {
@@ -89,9 +90,10 @@ void dlist_insert_after(dlist_ptr list, dlist_node_ptr node, dlist_node_ptr new_
 	node->next = new_node;
 }
 
-void dlist_insert_element_after(dlist_ptr list, dlist_node_ptr node, void *element_ptr) {
+dlist_node_ptr dlist_insert_element_after(dlist_ptr list, dlist_node_ptr node, void *element_ptr) {
 	dlist_node_ptr new_node = dlist_node_create(element_ptr);
 	dlist_insert_after(list, node, new_node);
+	return new_node;
 }
 
 void *dlist_delete_before(dlist_ptr list, dlist_node_ptr node) {
